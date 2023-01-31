@@ -10,7 +10,7 @@ const initialCategoriesState = {
   isChecking: false,
   message: '',
 };
-const categoriesSlice = (state = initialCategoriesState, action) => {
+const categoriesReducer = (state = initialCategoriesState, action) => {
   switch (action.type) {
     case CHECK_STATUS:
       return { ...state, isChecking: true, message: 'Under construction' };
@@ -19,4 +19,4 @@ const categoriesSlice = (state = initialCategoriesState, action) => {
   }
 };
 
-export default categoriesSlice.reducer;
+export default categoriesReducer;

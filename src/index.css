@@ -60,6 +60,7 @@ a {
   border-radius: 50%;
   border: 1px solid #e8e8e8;
   background-color: #fff;
+  color: #0290ff;
 }
 
 .container {
@@ -255,7 +256,7 @@ a {
   margin-top: 20px;
   display: flex;
   grid-gap: 32px;
-  gap: 32px;
+  gap: 10px;
 }
 
 .title-input {

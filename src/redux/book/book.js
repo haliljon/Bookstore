@@ -11,7 +11,32 @@ export const removeBook = (id) => ({
   id,
 });
 
-const initialBookState = [];
+const initialBookState = [
+  {
+    id: 1,
+    genre: 'Novel',
+    title: 'Anna Karenina',
+    author: 'Lev Tolstoy',
+  },
+  {
+    id: 2,
+    genre: 'Novel',
+    title: 'One Hundred Years of Solitude',
+    author: 'Gabriel García Márquez',
+  },
+  {
+    id: 3,
+    genre: 'Dystopian fiction',
+    title: 'Nineteen Eighty-Four',
+    author: 'George Orwell',
+  },
+  {
+    id: 4,
+    genre: 'Novel',
+    title: 'Crime and Punishment',
+    author: 'Fyodor Dostoevsky',
+  },
+];
 const bookReducer = (state = initialBookState, action) => {
   switch (action.type) {
     case ADD_BOOK:

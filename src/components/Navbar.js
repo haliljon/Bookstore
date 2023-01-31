@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import { FaUserAlt } from 'react-icons/fa';
 
 const Navbar = () => {
   const links = [
@@ -24,7 +25,9 @@ const Navbar = () => {
         ))}
       </ul>
       <button className="icon-button" type="button">
-        <span className="material-icons primary-color">person</span>
+        <span className="material-icons primary-color">
+          <FaUserAlt />
+        </span>
       </button>
     </nav>
   );

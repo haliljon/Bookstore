@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 } from 'uuid';
-import { addBook } from '../redux/book/book';
+import { bookActions } from '../redux/book/book';
 
 const Input = () => {
   const [title, setTitle] = useState('');
@@ -17,7 +17,7 @@ const Input = () => {
       author,
       genre,
     };
-    dispatch(addBook(newBook));
+    dispatch(bookActions.addBook(newBook));
   };
   return (
     <section>

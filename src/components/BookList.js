@@ -10,11 +10,17 @@ const BookList = () => {
   useEffect(() => {
     dispatch(displayBooks());
   }, [dispatch]);
-  console.log(bookStoreList);
+
   return (
     <ul className="books">
       {bookStoreList.map((book) => (
-        <Book key={book.id} book={book} />
+        <Book
+          key={book.item_id}
+          id={book.item_id}
+          title={book.title}
+          author={book.author}
+          category={book.category}
+        />
       ))}
     </ul>
   );

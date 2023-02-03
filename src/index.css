@@ -55,8 +55,8 @@ a {
 
 .icon-button {
   cursor: pointer;
-  width: 2.813rem;
-  height: 2.813rem;
+  width: 4rem;
+  height: 4rem;
   border-radius: 50%;
   border: 1px solid #e8e8e8;
   background-color: #fff;
@@ -103,7 +103,7 @@ a {
 
 .book-title {
   margin-top: 0.188rem;
-  font-size: 1.375rem;
+  font-size: 1.6rem;
   letter-spacing: -0.2px;
 }
 
@@ -113,14 +113,14 @@ a {
 }
 
 .book-author {
-  font-size: 0.875rem;
+  font-size: 1.2rem;
   font-weight: 300;
   color: #4386bf;
 }
 
 .book-category {
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.875rem;
+  font-size: 1.2rem;
   opacity: 0.5;
 }
 
@@ -135,7 +135,7 @@ a {
   background-color: transparent;
   border: none;
   color: #4386bf;
-  font-size: 0.875rem;
+  font-size: 1.2rem;
   font-weight: 300;
   align-items: center;
   cursor: pointer;
@@ -153,24 +153,8 @@ a {
   align-items: center;
 }
 
-.circular-progress-container {
-  width: 5.625rem;
-  height: 5.625rem;
-  padding: 0.63rem 0.625rem 0.75rem 0.75rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.circular-progress {
-  position: absolute;
-  border-radius: 50%;
-  width: 4.25rem;
-  height: 4.25rem;
-  border: 5px solid #307bbe;
-  border-left-color: #e8e8e8;
-  -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
+.progress {
+  margin: 20px;
 }
 
 .completed,
@@ -211,13 +195,13 @@ a {
 }
 
 .current-chapter-label {
-  font-size: 0.813rem;
+  font-size: 1.2rem;
   opacity: 0.5;
 }
 
 .current-chapter {
   margin-top: 0.438rem;
-  font-size: 1rem;
+  font-size: 1.3rem;
   letter-spacing: -0.4px;
 }
 
@@ -289,4 +273,9 @@ a {
   font-size: 0.813rem;
   font-weight: 700;
   font-family: 'Roboto Slab', serif;
+}
+
+.categories {
+  display: grid;
+  place-items: center;
 }

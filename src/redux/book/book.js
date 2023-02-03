@@ -1,48 +1,56 @@
+import { createAsyncThunk } from '@reduxjs/toolkit';
+
 const ADD_BOOK = 'bookstore/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookstore/books/REMOVE_BOOK';
-
+const DISPLAY_BOOKS = 'bookstore/books/DISPLAY_BOOKS';
+const URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/sF3v4K9XvF0U28c60dQV/books';
 // actions
-export const addBook = (book) => ({
-  type: ADD_BOOK,
-  book,
-});
-export const removeBook = (id) => ({
-  type: REMOVE_BOOK,
-  id,
-});
 
-const initialBookState = [
-  {
-    id: 1,
-    genre: 'Novel',
-    title: 'Anna Karenina',
-    author: 'Lev Tolstoy',
+export const displayBooks = createAsyncThunk(
+  DISPLAY_BOOKS,
+  async (post, { dispatch }) => {
+    const response = await fetch(URL);
+    const data = await response.json();
+    const books = Object.keys(data).map((id) => ({
+      ...data[id][0],
+      item_id: id,
+    }));
+    dispatch({
+      type: DISPLAY_BOOKS,
+      payload: books,
+    });
   },
-  {
-    id: 2,
-    genre: 'Novel',
-    title: 'One Hundred Years of Solitude',
-    author: 'Gabriel García Márquez',
+);
+
+export const addBook = createAsyncThunk(
+  ADD_BOOK, async (book, { dispatch }) => {
+    await fetch(URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(book),
+    });
+    dispatch({ type: ADD_BOOK, payload: book });
   },
-  {
-    id: 3,
-    genre: 'Dystopian fiction',
-    title: 'Nineteen Eighty-Four',
-    author: 'George Orwell',
+);
+
+export const removeBook = createAsyncThunk(
+  REMOVE_BOOK,
+  async (id, { dispatch }) => {
+    await fetch(`${URL}/${id}`, { method: 'DELETE' });
+    dispatch({ type: REMOVE_BOOK, payload: id });
   },
-  {
-    id: 4,
-    genre: 'Novel',
-    title: 'Crime and Punishment',
-    author: 'Fyodor Dostoevsky',
-  },
-];
+);
+
+const initialBookState = [];
+
 const bookReducer = (state = initialBookState, action) => {
   switch (action.type) {
+    case DISPLAY_BOOKS:
+      return action.payload;
     case ADD_BOOK:
-      return [...state, action.book];
+      return [...state, action.payload];
     case REMOVE_BOOK:
-      return state.filter((book) => book.id !== action.id);
+      return state.filter((book) => book.item_id !== action.payload);
     default:
       return state;
   }

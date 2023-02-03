@@ -6,16 +6,21 @@ const DISPLAY_BOOKS = 'bookstore/books/DISPLAY_BOOKS';
 const URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/sF3v4K9XvF0U28c60dQV/books';
 // actions
 
-// export const displayBooks = createAsyncThunk(
-//   DISPLAY_BOOKS,
-//   async () => axios.get(URL).then((response) => {
-//     const objData = response.data;
-//     const books = Object.keys(objData).map((key) => ({
-//       id: key, ...objData[key][0],
-//     }));
-//     return books;
-//   }),
-// );
+export const displayBooks = createAsyncThunk(
+  DISPLAY_BOOKS,
+  async (post, { dispatch }) => {
+    const response = await fetch(URL);
+    const data = await response.json();
+    const books = Object.keys(data).map((id) => ({
+      ...data[id][0],
+      item_id: id,
+    }));
+    dispatch({
+      type: DISPLAY_BOOKS,
+      payload: books,
+    });
+  },
+);
 
 export const addBook = createAsyncThunk(
   ADD_BOOK, async (book, { dispatch }) => {
@@ -50,21 +55,5 @@ const bookReducer = (state = initialBookState, action) => {
       return state;
   }
 };
-
-export const displayBooks = createAsyncThunk(
-  DISPLAY_BOOKS,
-  async (post, { dispatch }) => {
-    const response = await fetch(URL);
-    const data = await response.json();
-    const books = Object.keys(data).map((id) => ({
-      ...data[id][0],
-      item_id: id,
-    }));
-    dispatch({
-      type: DISPLAY_BOOKS,
-      payload: books,
-    });
-  },
-);
 
 export default bookReducer;

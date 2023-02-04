@@ -69,9 +69,17 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **[Momentarily it just the UI]**
+- User can read book
+- User can add book to the book list
+- User can delete book from the book list
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🚀 Live Demo
+
+Please use the following link to access the website:
+
+[react-bookstore.com](https://serene-truffle-54e4c3.netlify.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -122,11 +130,7 @@ FUTURE FEATURES
 
 ## 🔭 Future Features <a name="future-features"></a>
 
->
-
-- [ ] **[I would like to improve the look and feel of the application]**
-- [ ] **[User can input book to the list]**
-- [ ] **[The will be getting data from API and update data in that API]**
+- [ ] **Planning to add some content to the categories page**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

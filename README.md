@@ -25,7 +25,7 @@
 
 # 📖 Bookstore <a name="about-project"></a>
 
-**Bookstore** The app lets the user to input items into to do list, edit, delete and so on.
+**Bookstore** The app lets the user to input items into to do list, edit, delete and so on
 
 ## 🛠 Built With <a name="built-with"></a>
 
